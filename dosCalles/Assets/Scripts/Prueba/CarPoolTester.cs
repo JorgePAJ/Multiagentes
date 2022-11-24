@@ -10,19 +10,6 @@ public class CarPoolTester : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space)){
+    // Update is called once per frame\
 
-            // crear nuevo carrito en posicion random
-            CarPoolManager.Instance.ActivarObjeto(
-                new Vector3(
-                    Random.Range(0f, 10f),
-                    Random.Range(0f, 10f),
-                    Random.Range(0f, 10f)
-                )
-            );
-        }
-    }
 }
