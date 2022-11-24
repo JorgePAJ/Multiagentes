@@ -24,8 +24,6 @@ public class RequestManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(HacerRequest());
-
-        // _requestRecibidaSinArgumentos += funcion();
     }
 
     IEnumerator HacerRequest() {
@@ -42,16 +40,16 @@ public class RequestManager : MonoBehaviour
     
             //revisar si no hubo broncas
 
-            
-            if(jsonFile != null){
+    
+    if(jsonFile != null){
 
-                GeneralInfo generalInfo = JsonUtility.FromJson<GeneralInfo>(json);
-                print(generalInfo);
-                
-                _requestRecibidaSinArgumentos?.Invoke();
-                _requestConArgumentos?.Invoke(generalInfo);
-            }
-            yield return new WaitForSeconds(_esperaEntreRequests);
+        GeneralInfo generalInfo = JsonUtility.FromJson<GeneralInfo>(json);
+        print(generalInfo);
+        
+        _requestRecibidaSinArgumentos?.Invoke();
+        _requestConArgumentos?.Invoke(generalInfo);
+    }
+    yield return new WaitForSeconds(_esperaEntreRequests);
         }
     }
 
