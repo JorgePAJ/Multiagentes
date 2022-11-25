@@ -20,8 +20,7 @@ public class DataManager : MonoBehaviour
     // Start is called before the first frame update
     private void Inicio()
     {
-        _carrosGO = new GameObject[20];
-        
+        _carrosGO = new GameObject[ _carros.Length];
         // _semaforosGO = new GameObject[_semaforos.Length];
         carCounter = 0;
         
@@ -30,6 +29,7 @@ public class DataManager : MonoBehaviour
             _carrosGO[i] = CarPoolManager.Instance.ActivarObjeto(Vector3.zero);
 
         }
+
         
     }
 
@@ -74,7 +74,7 @@ public class DataManager : MonoBehaviour
         {
             _carros = datos.frames[i].cars;
             PosicionarCarros();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 
@@ -88,15 +88,14 @@ public class DataManager : MonoBehaviour
     {
         print("DATOS: " + datos);
 
-        // actualizar arreglo _carros de esta clase con
-        // los carros que recibo de "datos"
+
         _carros = datos.cars;
-        
         _semaforos = datos.semaphores;
         _frames = datos.frames;
         // invocar PosicionarCarros()
         Inicio();
-        PosicionarCarros();
+        StartCoroutine(CambiarPosicion(datos));
+        // CambiarPosicion(datos);
         // PosicionarSemaforos();
     }
 }
