@@ -60,7 +60,7 @@
      <Folder Include="Assets/POLYGON city pack/Prefabs/Floor" />
      <Folder Include="Assets/TextMesh Pro/Sprites" />
      <Folder Include="Assets/POLYGON city pack/Meshes,textures/traffic signs FBX" />
-     <Folder Include="Assets/POLYGON city pack/Materials/traffic light" />
+     <Folder Include="Assets/Materials/traffic light" />
      <Folder Include="Assets/TextMesh Pro/Resources/Sprite Assets" />
      <Folder Include="Assets/Scripts/Prueba" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
@@ -79,7 +79,7 @@
      <Folder Include="Assets/POLYGON city pack/Meshes,textures/Buildings_FBX/Materials" />
      <Folder Include="Assets/POLYGON city pack/Meshes,textures/props_FBX" />
      <Folder Include="Assets/POLYGON city pack/Meshes,textures/Letters FBX/Materials" />
-     <Folder Include="Assets/POLYGON city pack/Materials" />
+     <Folder Include="Assets/Materials" />
      <Folder Include="Assets/POLYGON city pack/Prefabs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
      <Folder Include="Assets/modelos/Cars" />
@@ -87,7 +87,7 @@
      <Folder Include="Assets/TextMesh Pro" />
      <Folder Include="Assets/modelos/Roads" />
      <Folder Include="Assets/POLYGON city pack/Prefabs/traffic signs" />
-     <Folder Include="Assets/POLYGON city pack/Materials/Material_meshs" />
+     <Folder Include="Assets/Materials/Material_meshs" />
      <Folder Include="Assets/POLYGON city pack/Prefabs/Letters" />
      <Folder Include="Assets/POLYGON city pack/Meshes,textures" />
      <Folder Include="Assets/Recources" />
@@ -97,7 +97,7 @@
      <Folder Include="Assets/POLYGON city pack/Meshes,textures/traffic signs FBX/Materials" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
-     <Folder Include="Assets/POLYGON city pack/Materials/color_windows" />
+     <Folder Include="Assets/Materials/color_windows" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
      <Folder Include="Assets/Prefabs" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
@@ -126,7 +126,7 @@
      <Folder Include="Assets/POLYGON city pack/Meshes,textures/lamps fbx/Materials" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
      <Folder Include="Assets/POLYGON city pack/Meshes,textures/Shops_FBX/Materials" />
-     <Folder Include="Assets/POLYGON city pack/Materials/Colors_buildings" />
+     <Folder Include="Assets/Materials/Colors_buildings" />
      <Folder Include="Assets/POLYGON city pack" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
      <Reference Include="UnityEngine">
