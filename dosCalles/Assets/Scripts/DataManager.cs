@@ -11,123 +11,70 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private Semaphore[] _semaforos;
 
-    private GameObject[] _carrosGO;
+    public GameObject[] _carrosGO;
     private GameObject[] _semaforosGO;
     private Frame[] _frames;
     private int carCounter;
     private int semaforoCounter;
 
     // Start is called before the first frame update
-    private void Start()
+    private void Inicio()
     {
-        _carrosGO = new GameObject[_carros.Length];
-        _semaforosGO = new GameObject[_semaforos.Length];
+        _carrosGO = new GameObject[20];
+        
+        // _semaforosGO = new GameObject[_semaforos.Length];
         carCounter = 0;
+        
         for (int i = 0; i < _carros.Length; i++)
         {
-            _carrosGO[i] = CarPoolManager.Instance.ActivarObjeto(
-                new Vector3(
-                    _carros[i].x,
-                    1,
-                    _carros[i].z
-                )
-            );
-        }
+            _carrosGO[i] = CarPoolManager.Instance.ActivarObjeto(Vector3.zero);
 
-        for (int i = 0; i < _semaforos.Length; i++)
-        {
-            _semaforosGO[i] = SemaforoManager.Instance.ActivarObjeto(
-                new Vector3(
-                    _semaforos[i].x,
-                    1,
-                    _semaforos[i].y
-                    )
-                );
         }
-        //StartCoroutine(CambiarPosicion());
+        
     }
 
     private void PosicionarCarros()
     {
-        for (int i = 0; i < _frames.Length; i++)
+      
+        print(_carrosGO.Length + "carritos");
+        for (int i = 0; i < _carros.Length; i++)
         {
-            _carrosGO[carCounter].transform.position = new Vector3(
-                _frames[i].cars[carCounter].x,
-                1,
-                _frames[i].cars[carCounter].z
-
-            );
-            if (carCounter >= _frames[i].cars.Length - 1)
-            {
-                carCounter = 0;
-            }
-            else
-            {
-                carCounter++;
-            }
+           
+            _carrosGO[i].transform.position = new Vector3(
+                _carros[i].x, 1, _carros[i].z);
         }
     }
 
-    private void PosicionarSemaforos()
+    // private void PosicionarSemaforos()
+    // {
+    //
+    //     for (int i = 0; i < _frames.Length; i++)
+    //     {
+    //         _semaforosGO[semaforoCounter].transform.position = new Vector3(
+    //             _frames[i].semaphores[semaforoCounter].x,
+    //             1,
+    //             _frames[i].semaphores[semaforoCounter].y
+    //
+    //         );
+    //         if (semaforoCounter >= _frames[i].semaphores.Length - 1)
+    //         {
+    //             semaforoCounter = 0;
+    //         }
+    //         else
+    //         {
+    //             semaforoCounter++;
+    //         }
+    //
+    //     }
+    // }
+
+    IEnumerator CambiarPosicion(GeneralInfo datos)
     {
-
-        for (int i = 0; i < _frames.Length; i++)
+        for (int i = 0; i < datos.frames.Length; i++)
         {
-            _semaforosGO[semaforoCounter].transform.position = new Vector3(
-                _frames[i].semaphores[semaforoCounter].x,
-                1,
-                _frames[i].semaphores[semaforoCounter].y
-
-            );
-            if (semaforoCounter >= _frames[i].semaphores.Length - 1)
-            {
-                semaforoCounter = 0;
-            }
-            else
-            {
-                semaforoCounter++;
-            }
-
-        }
-    }
-
-    IEnumerator CambiarPosicion()
-    {
-        for (int i = 0; i < _frames.Length; i++)
-        {
-            _semaforosGO[semaforoCounter].transform.position = new Vector3(
-                _frames[i].semaphores[semaforoCounter].x,
-                1,
-                _frames[i].semaphores[semaforoCounter].y
-
-            );
-            if (semaforoCounter >= _frames[i].semaphores.Length - 1)
-            {
-                semaforoCounter = 0;
-            }
-            else
-            {
-                semaforoCounter++;
-            }
-            
-            yield return delay;
-        }
-        for (int i = 0; i < _frames.Length; i++)
-        {
-            _semaforosGO[semaforoCounter].transform.position = new Vector3(
-                _frames[i].semaphores[semaforoCounter].x,
-                1,
-                _frames[i].semaphores[semaforoCounter].y
-
-            );
-            if (semaforoCounter >= _frames[i].semaphores.Length - 1)
-            {
-                semaforoCounter = 0;
-            }
-            else
-            {
-                semaforoCounter++;
-            }
+            _carros = datos.frames[i].cars;
+            PosicionarCarros();
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -144,10 +91,12 @@ public class DataManager : MonoBehaviour
         // actualizar arreglo _carros de esta clase con
         // los carros que recibo de "datos"
         _carros = datos.cars;
+        
         _semaforos = datos.semaphores;
         _frames = datos.frames;
         // invocar PosicionarCarros()
+        Inicio();
         PosicionarCarros();
-        PosicionarSemaforos();
+        // PosicionarSemaforos();
     }
 }

@@ -24,7 +24,6 @@ public class RequestManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(HacerRequest());
-
         // _requestRecibidaSinArgumentos += funcion();
     }
 
@@ -50,6 +49,7 @@ public class RequestManager : MonoBehaviour
                 
                 _requestRecibidaSinArgumentos?.Invoke();
                 _requestConArgumentos?.Invoke(generalInfo);
+                print("Despues del invoke");
             }
             yield return new WaitForSeconds(_esperaEntreRequests);
         }
