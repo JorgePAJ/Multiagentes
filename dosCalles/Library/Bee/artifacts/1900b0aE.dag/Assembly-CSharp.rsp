@@ -366,6 +366,7 @@
 "Assets/Scripts/Datos/GeneralInfo.cs"
 "Assets/Scripts/Datos/Semaphore.cs"
 "Assets/Scripts/Datos/Size.cs"
+"Assets/Scripts/MovingCamera.cs"
 "Assets/Scripts/Prueba/Autodestruccion.cs"
 "Assets/Scripts/Prueba/CarPoolTester.cs"
 "Assets/Scripts/RequestManager.cs"

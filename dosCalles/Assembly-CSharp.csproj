@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\SemaforoManager.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Prueba\CarPoolTester.cs" />
     <Compile Include="Assets\Scripts\Datos\Frame.cs" />
     <Compile Include="Assets\Scripts\Datos\Size.cs" />
@@ -69,7 +70,7 @@
     <Compile Include="Assets\Scripts\CarPoolManager.cs" />
     <Compile Include="Assets\Scripts\RequestManager.cs" />
     <Compile Include="Assets\Scripts\Prueba\Autodestruccion.cs" />
-    <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\MovingCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
