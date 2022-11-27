@@ -4,8 +4,6 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     [SerializeField]
-    float delayTime = 1.0f;
-    [SerializeField]
     private Carro[] _carros;
     WaitForSeconds delay = new WaitForSeconds(0.5f);
     [SerializeField]
@@ -14,7 +12,6 @@ public class DataManager : MonoBehaviour
     public GameObject[] _carrosGO;
     private GameObject[] _semaforosGO;
     private Frame[] _frames;
-    private int carCounter;
     private int semaforoCounter;
 
     // Start is called before the first frame update
@@ -22,7 +19,6 @@ public class DataManager : MonoBehaviour
     {
         _carrosGO = new GameObject[ _carros.Length];
         // _semaforosGO = new GameObject[_semaforos.Length];
-        carCounter = 0;
         
         for (int i = 0; i < _carros.Length; i++)
         {
