@@ -6,7 +6,6 @@ public class MovingCamera : MonoBehaviour
 {
     [SerializeField] private GameObject[] waypoints;
     int current = 0;
-    float rotspeed;
     public float speed;
     float WPradius = 1;
 

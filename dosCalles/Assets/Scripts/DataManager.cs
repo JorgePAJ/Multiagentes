@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DataManager : MonoBehaviour
@@ -10,15 +11,16 @@ public class DataManager : MonoBehaviour
     private Semaphore[] _semaforos;
 
     public GameObject[] _carrosGO;
-    private GameObject[] _semaforosGO;
+    [SerializeField] GameObject[] _semaforosGO;
     private Frame[] _frames;
-    private int semaforoCounter;
+
+    [SerializeField] Material[] materiales;
 
     // Start is called before the first frame update
     private void Inicio()
     {
         _carrosGO = new GameObject[ _carros.Length];
-        // _semaforosGO = new GameObject[_semaforos.Length];
+        //_semaforosGO = new GameObject[_semaforos.Length];
         
         for (int i = 0; i < _carros.Length; i++)
         {
@@ -44,35 +46,68 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    // private void PosicionarSemaforos()
-    // {
-    //
-    //     for (int i = 0; i < _frames.Length; i++)
-    //     {
-    //         _semaforosGO[semaforoCounter].transform.position = new Vector3(
-    //             _frames[i].semaphores[semaforoCounter].x,
-    //             1,
-    //             _frames[i].semaphores[semaforoCounter].y
-    //
-    //         );
-    //         if (semaforoCounter >= _frames[i].semaphores.Length - 1)
-    //         {
-    //             semaforoCounter = 0;
-    //         }
-    //         else
-    //         {
-    //             semaforoCounter++;
-    //         }
-    //
-    //     }
-    // }
+    private void EstadoSemaforos() // TODO: AUN NO FUNCIONA ESTOY PROBANDOLO
+    {
+        MeshRenderer rendererActual;
+        for(int i = 0; i < _semaforos.Length; i++)
+        {
+            rendererActual = _semaforosGO[i].GetComponent<MeshRenderer>();
+
+            print(_semaforos[i].state);
+            if (_semaforos[i].state == 0)
+            {
+                // luces verdes encendidas
+                rendererActual.materials[1] = materiales[1];
+                rendererActual.materials[4] = materiales[1];
+
+                // luces amarillas apagadas
+                rendererActual.materials[2] = materiales[2];
+                rendererActual.materials[5] = materiales[2];
+
+                // luces rojas apagadas
+                rendererActual.materials[3] = materiales[4];
+                rendererActual.materials[6] = materiales[4];
+            }
+            else if(_semaforos[i].state == 1)
+            {
+                // luces verdes apagadas
+                rendererActual.materials[1] = materiales[0];
+                rendererActual.materials[4] = materiales[0];
+
+                // luces amarillas prendidas
+                rendererActual.materials[2] = materiales[3];
+                rendererActual.materials[5] = materiales[3];
+
+                // luces rojas apagadas
+                rendererActual.materials[3] = materiales[4];
+                rendererActual.materials[6] = materiales[4];
+            }
+            else if (_semaforos[i].state == 2)
+            {
+                // luces verdes apagadas
+                rendererActual.materials[1] = materiales[0];
+                rendererActual.materials[4] = materiales[0];
+
+                // luces amarillas apagadas
+                rendererActual.materials[2] = materiales[2];
+                rendererActual.materials[5] = materiales[2];
+
+                // luces rojas prendidas
+                rendererActual.materials[3] = materiales[5];
+                rendererActual.materials[6] = materiales[5];
+            }
+            
+        }
+    }
 
     IEnumerator CambiarPosicion(GeneralInfo datos)
     {
         for (int i = 0; i < datos.frames.Length; i++)
         {
             _carros = datos.frames[i].cars;
+            _semaforos = datos.frames[i].semaphores;
             PosicionarCarros();
+            EstadoSemaforos(); // TODO: AUN NO FUNCIONA ESTOY PROBANDOLO
             yield return new WaitForSeconds(0.01f);
         }
     }
