@@ -49,54 +49,59 @@ public class DataManager : MonoBehaviour
     private void EstadoSemaforos() // TODO: AUN NO FUNCIONA ESTOY PROBANDOLO
     {
         MeshRenderer rendererActual;
+
         for(int i = 0; i < _semaforos.Length; i++)
         {
+
             rendererActual = _semaforosGO[i].GetComponent<MeshRenderer>();
+            Material[] tempMaterialArray = rendererActual.materials;
 
             print(_semaforos[i].state);
+
             if (_semaforos[i].state == 0)
             {
                 // luces verdes encendidas
-                rendererActual.materials[1] = materiales[1];
-                rendererActual.materials[4] = materiales[1];
+                tempMaterialArray[1] = materiales[1];
+                tempMaterialArray[4] = materiales[1];
 
                 // luces amarillas apagadas
-                rendererActual.materials[2] = materiales[2];
-                rendererActual.materials[5] = materiales[2];
+                tempMaterialArray[2] = materiales[2];
+                tempMaterialArray[5] = materiales[2];
 
                 // luces rojas apagadas
-                rendererActual.materials[3] = materiales[4];
-                rendererActual.materials[6] = materiales[4];
+                tempMaterialArray[3] = materiales[4];
+                tempMaterialArray[6] = materiales[4];
             }
             else if(_semaforos[i].state == 1)
             {
                 // luces verdes apagadas
-                rendererActual.materials[1] = materiales[0];
-                rendererActual.materials[4] = materiales[0];
+                tempMaterialArray[1] = materiales[0];
+                tempMaterialArray[4] = materiales[0];
 
                 // luces amarillas prendidas
-                rendererActual.materials[2] = materiales[3];
-                rendererActual.materials[5] = materiales[3];
+                tempMaterialArray[2] = materiales[3];
+                tempMaterialArray[5] = materiales[3];
 
                 // luces rojas apagadas
-                rendererActual.materials[3] = materiales[4];
-                rendererActual.materials[6] = materiales[4];
+                tempMaterialArray[3] = materiales[4];
+                tempMaterialArray[6] = materiales[4];
             }
             else if (_semaforos[i].state == 2)
             {
                 // luces verdes apagadas
-                rendererActual.materials[1] = materiales[0];
-                rendererActual.materials[4] = materiales[0];
+                tempMaterialArray[1] = materiales[0];
+                tempMaterialArray[4] = materiales[0];
 
                 // luces amarillas apagadas
-                rendererActual.materials[2] = materiales[2];
-                rendererActual.materials[5] = materiales[2];
+                tempMaterialArray[2] = materiales[2];
+                tempMaterialArray[5] = materiales[2];
 
                 // luces rojas prendidas
-                rendererActual.materials[3] = materiales[5];
-                rendererActual.materials[6] = materiales[5];
+                tempMaterialArray[3] = materiales[5];
+                tempMaterialArray[6] = materiales[5];
             }
-            
+            rendererActual.materials = tempMaterialArray;
+
         }
     }
 
