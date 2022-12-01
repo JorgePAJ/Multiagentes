@@ -39,7 +39,7 @@ public class DataManager : MonoBehaviour
         {
            
             _carrosGO[i].transform.position = new Vector3(
-                _carros[i].x, 1, _carros[i].z);
+                _carros[i].x, 0.1f, _carros[i].z);
 
             _carrosGO[i].transform.rotation = Quaternion.Euler(
                 new Vector3(0, _carros[i].dir, 0));
