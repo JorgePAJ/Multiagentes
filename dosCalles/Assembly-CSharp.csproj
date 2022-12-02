@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\CarPoolManager.cs" />
     <Compile Include="Assets\Scripts\RequestManager.cs" />
     <Compile Include="Assets\Scripts\Prueba\Autodestruccion.cs" />
+    <Compile Include="Assets\Scripts\SceneControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

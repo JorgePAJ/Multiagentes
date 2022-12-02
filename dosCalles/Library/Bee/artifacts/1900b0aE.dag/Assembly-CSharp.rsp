@@ -370,6 +370,7 @@
 "Assets/Scripts/Prueba/Autodestruccion.cs"
 "Assets/Scripts/Prueba/CarPoolTester.cs"
 "Assets/Scripts/RequestManager.cs"
+"Assets/Scripts/SceneControl.cs"
 "Assets/Scripts/SemaforoManager.cs"
 -langversion:9.0
 

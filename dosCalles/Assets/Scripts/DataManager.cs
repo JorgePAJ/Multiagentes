@@ -15,6 +15,7 @@ public class DataManager : MonoBehaviour
     private Frame[] _frames;
 
     [SerializeField] Material[] materiales;
+    [SerializeField] Light[] lights;
 
     // Start is called before the first frame update
     private void Inicio()
@@ -71,6 +72,8 @@ public class DataManager : MonoBehaviour
                 // luces rojas apagadas
                 tempMaterialArray[3] = materiales[4];
                 tempMaterialArray[6] = materiales[4];
+
+                lights[i].color = new Color(0, 255, 0, 0); // luz verde
             }
             else if(_semaforos[i].state == 1)
             {
@@ -85,6 +88,8 @@ public class DataManager : MonoBehaviour
                 // luces rojas apagadas
                 tempMaterialArray[3] = materiales[4];
                 tempMaterialArray[6] = materiales[4];
+
+                lights[i].color = new Color(255,255, 0, 0); // luz amarilla
             }
             else if (_semaforos[i].state == 2)
             {
@@ -99,6 +104,8 @@ public class DataManager : MonoBehaviour
                 // luces rojas prendidas
                 tempMaterialArray[3] = materiales[5];
                 tempMaterialArray[6] = materiales[5];
+
+                lights[i].color = new Color(255,0,0,0); // luz roja
             }
             rendererActual.materials = tempMaterialArray;
 
